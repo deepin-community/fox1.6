@@ -1,0 +1,70 @@
+Description: Prepare for external buildtree
+Author: Torsten Landschoff <torsten at debian.org>
+Forwarded: no
+Last-Update: 2016-03-15
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/adie/Makefile.am
++++ b/adie/Makefile.am
+@@ -77,7 +77,7 @@
+ $(ICONS)
+ 
+ 
+-Adie.cpp: icons.h icons.cpp
++Adie.lo: icons.h icons.cpp
+ 
+ 
+ icons.h: $(ICONS)
+--- a/calculator/Makefile.am
++++ b/calculator/Makefile.am
+@@ -35,7 +35,7 @@
+ $(ICONS)
+ 
+ 
+-Calculator.cpp: icons.h icons.cpp
++Calculator.lo: icons.h icons.cpp
+ 
+ 
+ icons.h: $(ICONS)
+--- a/pathfinder/Makefile.am
++++ b/pathfinder/Makefile.am
+@@ -63,7 +63,7 @@
+ LICENSE \
+ $(ICONS)
+ 
+-PathFinder.cpp: icons.h icons.cpp
++PathFinder.lo: icons.h icons.cpp
+ 
+ icons.h: $(ICONS)
+ 	$(RESWRAP) -i -o icons.h $^
+--- a/shutterbug/Makefile.am
++++ b/shutterbug/Makefile.am
+@@ -36,7 +36,7 @@
+ $(ICONS)
+ 
+ 
+-ShutterBug.cpp: icons.h icons.cpp
++ShutterBug.lo: icons.h icons.cpp
+ 
+ 
+ icons.h: $(ICONS)
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -447,14 +447,14 @@
+ $(CURSORS) \
+ $(ICONS)
+ 
+-FXApp.cpp: icons.h
++FXApp.lo: icons.h
+ 
+ icons.h: $(ICONS)
+-	$(RESWRAP) -i -n FX -o icons.h $(ICONS)
++	$(RESWRAP) -i -n FX -o icons.h $^
+ 
+ 
+ icons.cpp: $(ICONS)
+-	$(RESWRAP) -e -n FX -o icons.cpp $(ICONS)
++	$(RESWRAP) -e -n FX -o icons.cpp $^
+ 
+ 
+ EXTRA_DIST = Makefile.bc \

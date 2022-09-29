@@ -1,0 +1,20 @@
+Description: Make the build reproducible by not using __DATE__
+ Replaces the usage of __DATE__ with _DEBDATE_, which will be
+ defined in debian/rules as the date of the last entry in
+ debian/changelog. This should make the build reproducible.
+Author: Fabian Wolff <fabi.wolff@arcor.de>
+Forwarded: not-needed
+Last-Update: 2016-03-07
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/utils/reswrap.cpp
++++ b/utils/reswrap.cpp
+@@ -86,7 +86,7 @@
+ 
+ /* Print version information */
+ void printversion(){
+-  fprintf(stderr,"Reswrap %s %s.\n",version,__DATE__);
++  fprintf(stderr,"Reswrap %s %s.\n",version,_DEBDATE_);
+   fprintf(stderr,"Copyright (C) 1997,2005 Jeroen van der Zijp. All Rights Reserved.\n");
+   fprintf(stderr,"Please visit: http://www.fox-toolkit.org for further information.\n");
+   fprintf(stderr,"\n");

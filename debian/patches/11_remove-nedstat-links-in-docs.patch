@@ -1,0 +1,56 @@
+Description: Remove Nedstat links in the docs
+ Debian-specific patch because of Lintian warnings about
+ the use of 'Nedstat Basic' links in some HTML files
+Author: Joachim Wiedorn <joodebian at joonet.de>
+Forwarded: no
+Last-Update: 2016-03-15
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+diff -urN s10/doc/home.html s11/doc/home.html
+--- s10/doc/home.html	2014-09-02 22:48:50.349929259 +0200
++++ s11/doc/home.html	2014-09-02 22:59:10.154828476 +0200
+@@ -127,8 +127,6 @@
+ <table width=100% cellpadding=0 cellspacing=0><tr><td width=100% valign=top id=HEADLINE align=right>
+ <img src='art/line.gif' width=100% height=1><font size=-1>
+ Copyright &copy; 1997-2005 Jeroen van der Zijp</font>
+-<!-- Begin Nedstat Basic code --><!-- Title: FOX --><!-- URL: http://www.fox-toolkit.org --><script language="JavaScript" src="http://m1.nedstatbasic.net/basic.js"></script>
+-<A target=_blank href="http://v1.nedstatbasic.net/stats?ABDZOQqjU2gPjOQDQH/c7z1OusNg"><IMG src="http://m1.nedstatbasic.net/n?id=ABDZOQqjU2gPjOQDQH/c7z1OusNg&p=1&w=1280" border=0 width=18 height=18 align=right></A>
+ </td></tr></table>
+ </p>
+ <!--- COPYRIGHT -->
+diff -urN s10/doc/news2.html s11/doc/news2.html
+--- s10/doc/news2.html	2014-09-02 22:48:50.353929316 +0200
++++ s11/doc/news2.html	2014-09-02 22:58:46.894490620 +0200
+@@ -874,8 +874,6 @@
+ <table width=100% cellpadding=0 cellspacing=0><tr><td width=100% valign=top id=HEADLINE align=right>
+ <img src='art/line.gif' width=100% height=1><font size=-1>
+ Copyright &copy; 1997-2005 Jeroen van der Zijp</font>
+-<!-- Begin Nedstat Basic code --><!-- Title: FOX --><!-- URL: http://www.fox-toolkit.org --><script language="JavaScript" src="http://m1.nedstatbasic.net/basic.js"></script>
+-<A target=_blank href="http://v1.nedstatbasic.net/stats?ABDZOQqjU2gPjOQDQH/c7z1OusNg"><IMG src="http://m1.nedstatbasic.net/n?id=ABDZOQqjU2gPjOQDQH/c7z1OusNg&p=1&w=1280" border=0 width=18 height=18 align=right></A>
+ </td></tr></table>
+ </p>
+ <!--- COPYRIGHT -->
+diff -urN s10/doc/news3.html s11/doc/news3.html
+--- s10/doc/news3.html	2014-09-02 22:48:50.365929487 +0200
++++ s11/doc/news3.html	2014-09-02 22:57:15.689165882 +0200
+@@ -1260,8 +1260,6 @@
+ <table width=100% cellpadding=0 cellspacing=0><tr><td width=100% valign=top id=HEADLINE align=right>
+ <img src='art/line.gif' width=100% height=1><font size=-1>
+ Copyright &copy; 1997-2005 Jeroen van der Zijp</font>
+-<!-- Begin Nedstat Basic code --><!-- Title: FOX --><!-- URL: http://www.fox-toolkit.org --><script language="JavaScript" src="http://m1.nedstatbasic.net/basic.js"></script>
+-<A target=_blank href="http://v1.nedstatbasic.net/stats?ABDZOQqjU2gPjOQDQH/c7z1OusNg"><IMG src="http://m1.nedstatbasic.net/n?id=ABDZOQqjU2gPjOQDQH/c7z1OusNg&p=1&w=1280" border=0 width=18 height=18 align=right></A>
+ </td></tr></table>
+ </p>
+ <!--- COPYRIGHT -->
+diff -urN s10/doc/news.html s11/doc/news.html
+--- s10/doc/news.html	2014-09-02 22:48:50.373929599 +0200
++++ s11/doc/news.html	2014-09-02 22:57:04.725006629 +0200
+@@ -202,8 +202,6 @@
+ <table width=100% cellpadding=0 cellspacing=0><tr><td width=100% valign=top id=HEADLINE align=right>
+ <img src='art/line.gif' width=100% height=1><font size=-1>
+ Copyright &copy; 1997-2005 Jeroen van der Zijp</font>
+-<!-- Begin Nedstat Basic code --><!-- Title: FOX --><!-- URL: http://www.fox-toolkit.org --><script language="JavaScript" src="http://m1.nedstatbasic.net/basic.js"></script>
+-<A target=_blank href="http://v1.nedstatbasic.net/stats?ABDZOQqjU2gPjOQDQH/c7z1OusNg"><IMG src="http://m1.nedstatbasic.net/n?id=ABDZOQqjU2gPjOQDQH/c7z1OusNg&p=1&w=1280" border=0 width=18 height=18 align=right></A>
+ </td></tr></table>
+ </p>
+ <!--- COPYRIGHT -->

@@ -1,0 +1,44 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+ifeq ($(shell dpkg-vendor --derives-from Ubuntu && echo yes),yes)
+ifneq (,$(LDFLAGS))
+  LDFLAGS := $(filter-out %-Bsymbolic-functions,$(LDFLAGS))
+endif
+endif
+
+include /usr/share/dpkg/pkg-info.mk
+export DEB_CPPFLAGS_MAINT_APPEND = -D_DEBDATE_=\"$(shell \
+	LC_ALL=C date -u -d @$(SOURCE_DATE_EPOCH) +%b-%d-%Y)\"
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -Bbuild -- \
+	  --with-xft  --with-xshm \
+	  --with-xcursor --with-opengl \
+	  --enable-release --with-xim \
+	  --program-suffix=-1.6 \
+	  --without-xrender \
+	  --without-xfixes \
+	  --without-xinput
+
+override_dh_auto_clean:
+	dh_auto_clean -Bbuild
+
+override_dh_auto_build:
+	dh_auto_build -Bbuild
+
+override_dh_auto_install:
+	dh_auto_install -Bbuild  --  \
+		htmldir=/usr/share/doc/html \
+		artdir=/usr/share/doc/html/art \
+		screenshotsdir=/usr/share/doc/html/screenshots
+	for file in debian/tmp/usr/lib/*/*.la; do \
+		sed -i "/dependency_libs/ s/'.*'/''/" $$file ; \
+	done	
