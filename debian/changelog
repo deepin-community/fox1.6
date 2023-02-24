@@ -1,8 +1,9 @@
-fox1.6 (1.6.57-1+u001) UNRELEASED; urgency=medium
+fox1.6 (1.6.57-1deepin) unstable; urgency=medium
 
-  * update
+  [ LiChengGang ]
+  * update changelog 
 
- -- Fabian Wolff <fabi.wolff@arcor.de>  Wed, 27 Apr 2022 13:26:28 +0800
+ -- LiChengGang <lichenggang@uniontech.com>  Fri, 24 Feb 2023 13:48:48 +0800
 
 fox1.6 (1.6.57-1) unstable; urgency=medium
 
